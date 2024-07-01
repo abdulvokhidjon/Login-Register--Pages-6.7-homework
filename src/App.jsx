@@ -7,6 +7,10 @@ import { Home, About, Contact, Login, Register, ErrorPage } from "./pages";
 // layouts
 import MainLayout from "./layouts/MainLayout";
 
+//action
+import { action as RegisterAction } from "./pages/Register";
+// import { action as LoginAction } from "./pages/Login";
+
 function App() {
   const routes = createBrowserRouter([
     {
@@ -34,6 +38,7 @@ function App() {
       path: "register",
       element: <Register />,
       errorElement: <ErrorPage />,
+      action: RegisterAction,
     },
   ]);
   return <RouterProvider router={routes} />;

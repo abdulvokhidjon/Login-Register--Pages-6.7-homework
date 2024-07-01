@@ -1,5 +1,13 @@
-import { Form, Link } from "react-router-dom";
+import { Form, Link, useActionData } from "react-router-dom";
 import FormInput from "../components/FormInput";
+
+//action
+export const action = async ({ request }) => {
+  let formData = await request.formData();
+  let displayName = formData.get("displayName");
+  let password = formData.get("password");
+  return { displayName, photoURL, email, password };
+};
 
 function Login() {
   return (
@@ -11,7 +19,6 @@ function Login() {
           <FormInput name="email" type="email" label="Email" />
           <FormInput name="password" type="password" label="Password" />
           <div>
-            
             <button className="btn btn-primary btn-block">Login</button>
           </div>
           <div className="w-full">

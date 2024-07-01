@@ -1,7 +1,9 @@
 // rrd imports
-import { Form, Link } from "react-router-dom";
+import { Form, Link, useActionData } from "react-router-dom";
 // components
 import FormInput from "../components/FormInput";
+// react imports
+import { useEffect, useState } from "react";
 
 //action
 export const action = async ({ request }) => {
@@ -14,6 +16,12 @@ export const action = async ({ request }) => {
 };
 
 function Register() {
+  const userData = useActionData();
+  useEffect(() => {
+    if (userData) {
+      console.log(userData);
+    }
+  }, [userData]);
   return (
     <div className="auth-container">
       <div className="auth-left"></div>
@@ -28,10 +36,14 @@ function Register() {
           <FormInput name="email" type="email" label="Email" />
           <FormInput name="password" type="password" label="Password" />
           <div className="mt-6">
-            <button className="btn btn-primary btn-block">Register</button>
+            <button type="submit" className="btn btn-primary btn-block">
+              Register
+            </button>
           </div>
           <div className="w-full">
-            <button className="btn btn-secondary btn-block">Google</button>
+            <button type="button" className="btn btn-secondary btn-block">
+              Google
+            </button>
           </div>
           <div className="text-center">
             <p className="text-slate-500">
