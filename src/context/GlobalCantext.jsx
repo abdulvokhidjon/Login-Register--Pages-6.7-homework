@@ -1,10 +1,10 @@
-// react import
 import { createContext, useReducer } from "react";
 
 export const GlobalContext = createContext();
 
 const changeState = (state, action) => {
   const { type, payload } = action;
+
   switch (type) {
     case "LOG_IN":
       return { ...state, user: payload };
@@ -17,7 +17,7 @@ const changeState = (state, action) => {
   }
 };
 
-function GlobalContextProvider({ children }) {
+export function GlobalCantextProvider({ children }) {
   const [state, dispatch] = useReducer(changeState, {
     user: null,
     isAuthReady: false,
@@ -26,13 +26,13 @@ function GlobalContextProvider({ children }) {
     totalPrice: 0,
   });
 
-  dispatch({ type: "LOG_IN", payload: {} });
-
   return (
-    <GlobalContext.Provider value={{ ...state, dispatch }}>
-      {children}
-    </GlobalContext.Provider>
+    <div>
+      <GlobalContext.Provider value={{ ...state, dispatch }}>
+        {children}
+      </GlobalContext.Provider>
+    </div>
   );
 }
 
-export default GlobalContextProvider;
+export default GlobalCantextProvider;

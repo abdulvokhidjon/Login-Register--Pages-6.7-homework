@@ -1,18 +1,16 @@
-// rrd imports
 import { Outlet } from "react-router-dom";
-// Ensure these paths are correct according to your project structure
-import { Footer, Navbar } from "../components";
+
+import { Navbar } from "../pages";
 
 function MainLayout() {
-  return (
-    <>
-      <Navbar />
-      <main>
-        <Outlet />
-      </main>
-      <Footer />
-    </>
-  );
+    return (
+        <>
+            <Navbar />
+            <main>
+                <Outlet />
+            </main>
+        </>
+    );
 }
 
 export default MainLayout;
