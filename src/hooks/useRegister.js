@@ -9,13 +9,17 @@ export const useRegister = () => {
 
   const registerWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        const user = result.user;
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-      });
+    try {
+      setIsPending(true);
+      await signInWithPopup(auth, provider);
+      const user = result.user;
+      console.log(user);
+      setIsPending(false);
+    } catch (error) {
+      const errorMessage = error.message;
+      console.log(errorMessage);
+      setIsPending(false);
+    }
   };
-  return { registerWithGoogle, isPending };
 };
+return { registerWithGoogle, isPending };
