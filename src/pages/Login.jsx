@@ -46,7 +46,7 @@ function Login() {
                             Login
                         </button>
                     </div>
-                    <div>
+                    {/* <div>
                         <button
                         
                             type="button"
@@ -54,7 +54,7 @@ function Login() {
                         >
                             Google
                         </button>
-                    </div>
+                    </div> */}
                     <div className="text-center">
                         <p>
                             If you don't have account,{" "}
