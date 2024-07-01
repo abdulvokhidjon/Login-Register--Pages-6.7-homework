@@ -1,7 +1,7 @@
 {
-  "name": "my-vite-project",
+  "name": "Login-Register-6.7-homework",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
