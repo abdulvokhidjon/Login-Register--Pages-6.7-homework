@@ -1,12 +1,27 @@
+// rrd imports
 import { Form, Link } from "react-router-dom";
+// components
 import FormInput from "../components/FormInput";
+
+//action
+export const action = async ({ request }) => {
+  let formData = await request.formData();
+  let displayName = formData.get("displayName");
+  let photoURL = formData.get("photoURL");
+  let email = formData.get("email");
+  let password = formData.get("password");
+  return { displayName, photoURL, email, password };
+};
 
 function Register() {
   return (
     <div className="auth-container">
       <div className="auth-left"></div>
       <div className="auth-right">
-        <Form className="flex flex-col gap-2 w-96 bg-base-100 shadow-xl p-8">
+        <Form
+          method="post"
+          className="flex flex-col gap-2 w-96 bg-base-100 shadow-xl p-8"
+        >
           <h1 className="text-3xl font-semibold text-center">Register</h1>
           <FormInput name="displayName" type="text" label="Your Name" />
           <FormInput name="photoURL" type="url" label="Your Image URL" />
