@@ -1,20 +1,29 @@
 import { Form, Link, useActionData } from "react-router-dom";
 import FormInput from "../components/FormInput";
 
+// react import
+import { useEffect } from "react";
+
 //action
 export const action = async ({ request }) => {
   let formData = await request.formData();
-  let displayName = formData.get("displayName");
+  let email = formData.get("email");
   let password = formData.get("password");
-  return { displayName, password };
+  return { email, password };
 };
 
 function Login() {
+  const userData = useActionData();
+  useEffect(() => {
+    if (userData) {
+      console.log(userData);
+    }
+  }, [userData]);
   return (
     <div className="auth-container">
       <div className="auth-left"></div>
       <div className="auth-right">
-        <Form className="flex flex-col gap-5 w-96 bg-base-100 shadow-xl p-8">
+        <Form method="post" className="flex flex-col gap-5 w-96 bg-base-100 shadow-xl p-8">
           <h1 className="text-3xl font-semibold text-center">Login</h1>
           <FormInput name="email" type="email" label="Email" />
           <FormInput name="password" type="password" label="Password" />
