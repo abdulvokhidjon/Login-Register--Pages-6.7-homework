@@ -6,7 +6,7 @@ export const action = async ({ request }) => {
   let formData = await request.formData();
   let displayName = formData.get("displayName");
   let password = formData.get("password");
-  return { displayName, photoURL, email, password };
+  return { displayName, password };
 };
 
 function Login() {
@@ -19,10 +19,14 @@ function Login() {
           <FormInput name="email" type="email" label="Email" />
           <FormInput name="password" type="password" label="Password" />
           <div>
-            <button className="btn btn-primary btn-block">Login</button>
+            <button type="submit" className="btn btn-primary btn-block">
+              Login
+            </button>
           </div>
           <div className="w-full">
-            <button className="btn btn-secondary btn-block">Google</button>
+            <button type="button" className="btn btn-secondary btn-block">
+              Google
+            </button>
           </div>
           <div className="text-center">
             <p className="text-slate-500">

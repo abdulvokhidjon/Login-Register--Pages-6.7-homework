@@ -9,7 +9,7 @@ import MainLayout from "./layouts/MainLayout";
 
 //action
 import { action as RegisterAction } from "./pages/Register";
-// import { action as LoginAction } from "./pages/Login";
+import { action as LoginAction } from "./pages/Login";
 
 function App() {
   const routes = createBrowserRouter([
@@ -33,6 +33,7 @@ function App() {
       path: "login",
       element: <Login />,
       errorElement: <ErrorPage />,
+      action: LoginAction,
     },
     {
       path: "register",
