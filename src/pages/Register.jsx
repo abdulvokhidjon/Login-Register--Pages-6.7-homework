@@ -1,4 +1,4 @@
-// react import 
+// react import
 import { Form, Link, useActionData } from "react-router-dom";
 
 // components
@@ -21,7 +21,7 @@ import { useRegister } from "../hooks/useRegister";
 
 function Register() {
   const userData = useActionData();
-
+  const { isPending, registerWithGoogle } = useRegister();
   useEffect(() => {
     if (userData) {
       console.log(userData);
@@ -47,7 +47,11 @@ function Register() {
             </button>
           </div>
           <div>
-            <button type="button" className="btn btn-secondary w-full">
+            <button
+              onClick={registerWithGoogle}
+              type="button"
+              className="btn btn-secondary w-full"
+            >
               Google
             </button>
           </div>
